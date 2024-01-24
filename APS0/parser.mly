@@ -15,9 +15,13 @@ open Ast
   
 %token <int> NUM
 %token <string> IDENT
-%token LPAR RPAR 
 %token LBRA RBRA
-%token ECHO
+%token LPAR RPAR 
+%token CONST FUN REC IF ECHO
+%token SEMCOL COL COMA ARROW
+%token STAR
+%token AND OR
+%token BOOL INT
 
 %type <Ast.expr> expr
 %type <Ast.expr list> exprs
@@ -32,7 +36,12 @@ prog: LBRA cmds RBRA    { $2 }
 
 cmds:
   stat                  { [ASTStat $1] }
+  | def SEMCOL cmds     {  }
 ;
+
+def:
+  CONST IDENT type expr {}
+  | FUN IDENT type LBRA args RBRA expr
 
 stat:
   ECHO expr             { ASTEcho($2) }
