@@ -69,6 +69,20 @@ stat:
   ECHO expr             { ASTEcho($2) }
 ;
 
+type:
+BOOL OR int {}
+| LPAR types ARROW type RPAR
+
+types:
+type {}
+| type STAR types {}
+
+args:
+arg {}
+| arge COMA args {}
+
+arg: IDENT COL type {}
+
 expr:
   NUM                   { ASTNum($1) }
 | IDENT                 { ASTId($1) }
