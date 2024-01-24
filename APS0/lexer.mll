@@ -22,7 +22,7 @@ rule token = parse
   | ';'              { SEMCOL }
   | ':'              { COL }
   | ','              { COMA }
-  | '*'              { TIMES }
+  | '*'              { STAR }
   | "->"             { ARROW }
   | "CONST"          { CONST }
   | "FUN"            { FUN }

@@ -13,6 +13,10 @@ type expr =
     ASTNum of int
   | ASTId of string
   | ASTApp of expr * expr list
+  | ASTIf of expr * expr * expr
+  | ASTAnd of expr * expr
+  | ASTOr of expr * expr
+  (* | ASTBool *)
 
 type stat =
     ASTEcho of expr

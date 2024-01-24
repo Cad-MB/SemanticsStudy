@@ -20,6 +20,31 @@ let rec print_expr e =
 	print_exprs es;
 	Printf.printf"])"
       )
+    | ASTIf(cond, consequence, alternative) -> (
+      Printf.printf"if ";
+      print_expr cond;
+      Printf.printf", consequence ";
+      print_expr consequence;
+      Printf.printf", alternative ";
+      print_expr alternative;
+    )
+    | ASTAnd(op1, op2) -> (
+      Printf.printf"and ";
+      Printf.printf"operand 1 ";
+      print_expr op1;
+      Printf.printf"operand 2 ";
+      print_expr op2;
+    )
+    | ASTOr(op1, op2) -> (
+      Printf.printf"or ";
+      Printf.printf"operand 1 ";
+      print_expr op1;
+      Printf.printf"operand 2 ";
+      print_expr op2;
+    )
+    (* | ASTBool() -> (
+      Printf.printf"boolean ";
+    ) *)
 and print_exprs es =
   match es with
       [] -> ()
