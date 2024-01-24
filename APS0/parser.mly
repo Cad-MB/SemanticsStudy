@@ -36,16 +36,32 @@ prog: LBRA cmds RBRA    { $2 }
 
 cmds:
   stat                  { [ASTStat $1] }
-  | def SEMCOL cmds     {  }
+  | def SEMCOL cmds     { [$3] }
 ;
 
 def:
   CONST IDENT type expr {}
-  | FUN IDENT type LBRA args RBRA expr
+  // x 
+  | FUN IDENT type LBRA args RBRA expr {}
+  | FUN REC IDENT type LBRA args RBRA expr {}
 
 stat:
   ECHO expr             { ASTEcho($2) }
 ;
+
+type:
+BOOL OR int {}
+| LPAR types ARROW type RPAR
+
+types:
+type {}
+| type STAR types {}
+
+args:
+arg {}
+| arge COMA args {}
+
+arg: IDENT COL type {}
 
 expr:
   NUM                   { ASTNum($1) }
