@@ -23,10 +23,16 @@ open Ast
 %token AND OR
 %token BOOL INT
 
+%type <Ast.cmds> prog
+%type <Ast.cmds> cmds
+%type <Ast.def> def
+%type <Ast.stat> stat
 %type <Ast.expr> expr
 %type <Ast.expr list> exprs
-%type <Ast.cmd list> cmds
-%type <Ast.cmd list> prog
+%type <Ast.singleType> singleType
+%type <Ast.types> types
+%type <Ast.arg> arg
+%type <Ast.args> args
 
 %start prog
 
@@ -35,53 +41,20 @@ prog: LBRA cmds RBRA    { $2 }
 ;
 
 cmds:
-  stat                  { [ASTStat $1] }
-  // | def SEMCOL cmds     { $3 }
+  stat                  { ASTStat $1 }
+  | def SEMCOL cmds     { ASTDef($1, $3) }
 ;
 
-// def:
-//   CONST IDENT type expr {}
-//   | FUN IDENT type LBRA args RBRA expr  {}
-//   | FUN REC IDENT type LBRA args RBRA expr {} 
-// ;
+def:
+  CONST IDENT singleType expr {ASTConst($2, $3, $4)}
+  | FUN IDENT singleType LBRA args RBRA expr  {ASTFunct($2, $3, $5, $7)}
+  | FUN REC IDENT singleType LBRA args RBRA expr {ASTRecFunct($3, $4, $6, $8)} 
+;
 
-// type:
-//   BOOL    {ASTBool()}
-//   | INT   {}
-//   | LPAR types ARROW type   {}
-// ;
-
-// types:
-//   type  {}
-//   | type * types   {}
-// ;
-
-// args:
-//   arg   {}
-//   | arg COMA args  {}
-// ;
-
-// arg: 
-//   ident COL type
-// ;
 
 stat:
   ECHO expr             { ASTEcho($2) }
 ;
-
-type:
-BOOL OR int {}
-| LPAR types ARROW type RPAR
-
-types:
-type {}
-| type STAR types {}
-
-args:
-arg {}
-| arge COMA args {}
-
-arg: IDENT COL type {}
 
 expr:
   NUM                   { ASTNum($1) }
@@ -90,11 +63,30 @@ expr:
 | LPAR AND expr expr RPAR {ASTAnd($3, $4)}
 | LPAR OR expr expr RPAR  {ASTOr($3, $4)}
 | LPAR expr exprs RPAR  { ASTApp($2, $3) }
-// | RBRA args LBRA expr {}
+| LBRA args RBRA expr {ASTLambdaExpression($2, $4)}
 ;
 
 exprs :
   expr       { [$1] }
 | expr exprs { $1::$2 }
+;
+
+singleType:
+  INT       { Type(Int) }
+  | BOOL    { Type(Bool) }  
+  | LPAR types ARROW singleType RPAR {TypeFunc($2, $4)}
+;
+
+types:
+  singleType { ASTType($1)}
+| singleType STAR types { ASTTypes($1, $3)}
+;
+
+arg: IDENT COL singleType {ASTArg($1, $3)}
+;
+
+args:
+  arg {ASTOneArg($1)}
+| arg COMA args {ASTArgs($1, $3)}
 ;
 

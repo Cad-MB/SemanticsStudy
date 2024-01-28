@@ -21,4 +21,4 @@ type token =
   | INT
 
 val prog :
-  (Lexing.lexbuf  -> token) -> Lexing.lexbuf -> Ast.cmd list
+  (Lexing.lexbuf  -> token) -> Lexing.lexbuf -> Ast.cmds
