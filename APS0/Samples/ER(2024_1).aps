@@ -1,0 +1,6 @@
+[ 
+    CONST i int 3;
+    FUN f int [x: bool, y: int] (if x y u);
+    CONST i int 10;
+    ECHO (f (eq u 3) u)
+]

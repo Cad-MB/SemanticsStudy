@@ -1,50 +1,34 @@
-(* ========================================================================== *)
-(* == UPMC/master/info/4I506 -- Janvier 2016/2017/2018                     == *)
-(* == SU/FSI/master/info/MU4IN503 -- Janvier 2020/2021/2022                == *)
-(* == Analyse des programmes et sémantiques                                == *)
-(* ========================================================================== *)
-(* == hello-APS Syntaxe ML                                                 == *)
-(* == Fichier: ast.ml                                                      == *)
-(* ==  Arbre de syntaxe abstraite                                          == *)
-(* ========================================================================== *)
-
-
-
 type possibleType = Int | Bool
 type singleType = 
-      Type of (possibleType) 
-    | TypeFunc of types * singleType (*ARROW*) 
+  Type of (possibleType) 
+  | TypeFun of types * singleType
   and types = 
-      ASTType of singleType 
-    | ASTTypes of singleType * types (* multiple types a * b  *)
+    singleType list
 
-type arg = 
-    ASTArg of string * singleType
+type singleArg = 
+  | ASTSingleArg of string * singleType
+  and args = 
+    singleArg list (* <-- inspiré d'un étudiant dans la salle TME*)
 
-type args = 
-    ASTOneArg of arg
-  | ASTArgs of arg * args
-
-
-type expr =
-    ASTNum of int
+type singleExpr =
+  | ASTNum of int
   | ASTId of string
-  | ASTApp of expr * expr list
-  | ASTIf of expr * expr * expr
-  | ASTAnd of expr * expr
-  | ASTOr of expr * expr
-  | ASTLambdaExpression of args * expr
+  | ASTIf of singleExpr * singleExpr * singleExpr
+  | ASTAnd of singleExpr * singleExpr
+  | ASTOr of singleExpr * singleExpr
+  | ASTApp of singleExpr * singleExpr list
+  | ASTLambdaExpression of args * singleExpr
+  and exprs =
+    singleExpr list
 
 type stat =
-    ASTEcho of expr
-      
+  | ASTEcho of singleExpr
+
 type def =
-  ASTConst of string * singleType * expr
-  | ASTFunct of string * singleType * args * expr
-  | ASTRecFunct of string * singleType * args * expr
+  | ASTConst of string * singleType * singleExpr
+  | ASTFun of string * singleType * args * singleExpr
+  | ASTFunRec of string * singleType * args * singleExpr
 
 type cmds =
-    ASTStat of stat
+  | ASTStat of stat
   | ASTDef of def * cmds
-
-	

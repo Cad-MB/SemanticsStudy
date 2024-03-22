@@ -1,1 +1,3 @@
-[ECHO [a:int] 5]
+[
+    ECHO [a:int] 5
+]

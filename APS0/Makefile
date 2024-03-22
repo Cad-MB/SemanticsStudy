@@ -1,18 +1,15 @@
-# ==============================================================================
-# === UPMC/master/info/4I506 -- Janvier 2016/2017/2018                        ==
-# === SU/FSI/master/info/MU4IN503 -- Janvier 2020/2021                        ==
-# === Analyse des programmes et sémantiques                                   ==
-# ==============================================================================
-# === S-expressions Syntaxe ML                                                ==
-# === Fichier: Makefile                                                       ==
-# ==============================================================================
-
 LEX_ML = ocamllex
-YACC_ML = /usr/local/bin/ocamlyacc
+YACC_ML = /usr/bin/ocamlyacc
+#YACC_ML = /usr/local/bin/ocamlyacc
 OCAMLC = ocamlc
+
+all: prologTerm evaluateur
 
 prologTerm: parser prologTerm.ml
 	$(OCAMLC) -o prologTerm ast.cmo lexer.cmo parser.cmo prologTerm.ml
+
+evaluateur: parser evaluateur.ml
+	$(OCAMLC) -o evaluateur ast.cmo lexer.cmo parser.cmo evaluateur.ml
 
 parser: ast.ml lexer.mll parser.mly
 	$(OCAMLC) -c ast.ml
@@ -26,6 +23,7 @@ clean:
 	rm -f *.cmo
 	rm -f *.cmi
 	rm -f prologTerm
+	rm -f evaluateur
 	rm -f lexer.ml
 	rm -f parser.mli
 	rm -f parser.ml

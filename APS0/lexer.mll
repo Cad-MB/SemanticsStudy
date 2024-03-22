@@ -1,20 +1,13 @@
-(* ========================================================================== *)
-(* == UPMC/master/info/4I506 -- Janvier 2016/2017/2018                     == *)
-(* == SU/FSI/master/info/MU4IN503 -- Janvier 2020/2021/2022                == *)
-(* == Analyse des programmes et sémantiques                                == *)
-(* ========================================================================== *)
-(* == hello-APS Syntaxe ML                                                 == *)
-(* == Fichier: lexer.mll                                                   == *)
-(* ==  Lexique                                                             == *)
-(* ========================================================================== *)
+(*Lexique: string -> lexemes*)
 
 {
   open Parser        (* The type token is defined in parser.mli *)
   exception Eof
-
 }
+
 rule token = parse
     [' ' '\t' '\n']       { token lexbuf }     (* skip blanks *)
+    (*Symboles reserves*)
   | '['              { LBRA }
   | ']'              { RBRA }
   | '('              { LPAR }
@@ -24,6 +17,7 @@ rule token = parse
   | ','              { COMA }
   | '*'              { STAR }
   | "->"             { ARROW }
+  (*Mots clef*)
   | "CONST"          { CONST }
   | "FUN"            { FUN }
   | "REC"            { REC }
@@ -33,6 +27,8 @@ rule token = parse
   | "or"             { OR }
   | "bool"           { BOOL }
   | "int"            { INT }
+  (*Constantes numeriques*)
   | ['0'-'9']+('.'['0'-'9'])? as lxm { NUM(int_of_string lxm) }
+  (*Identificateurs*)
   | ['a'-'z']['a'-'z''A'-'Z''0'-'9']* as lxm { IDENT(lxm) }
   | eof              { raise Eof }

@@ -1,1 +1,3 @@
-[ECHO (if 3 x 42)]
+[
+    ECHO (if 3 x 42)
+]

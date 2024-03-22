@@ -1,1 +1,3 @@
-[ ECHO (add x 42) ]
+[ 
+    ECHO (add x 42) 
+]
