@@ -1,0 +1,4 @@
+[
+    PROC hichem [x:int, y:int] [ECHO (add x y)];
+    ECHO (hichem 2 3)
+]

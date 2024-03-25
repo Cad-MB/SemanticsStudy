@@ -8,7 +8,7 @@ type singleType =
 type singleArg = 
   | ASTSingleArg of string * singleType
   and args = 
-    singleArg list (* <-- inspiré d'un étudiant dans la salle TME*)
+    singleArg list (* <-- fait avec l'aide d'un camarade dans la salle TME*)
 
 type singleExpr =
   | ASTNum of int

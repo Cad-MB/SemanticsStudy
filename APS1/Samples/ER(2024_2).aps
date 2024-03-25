@@ -1,0 +1,8 @@
+[
+    FUN REC somme int [n: int] (if 
+                                (eq n 0) 
+                                0 
+                                (add n (somme (sub n 1)))
+                                ); 
+    ECHO (somme 3)
+]

@@ -1,0 +1,10 @@
+[
+    VAR x int;
+    SET x 5;
+    PROC hichem [y:int] [
+        SET y 10;
+        ECHO y;
+        ECHO x
+    ];
+    CALL hichem x
+]

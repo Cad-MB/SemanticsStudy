@@ -19,15 +19,15 @@ and print_types ts =
   | [a] -> print_singleType a
   | h::tail -> (
     print_singleType h;
-    Printf.printf "*";
+    Printf.printf ",";
     print_types tail)
 
 let print_singleArg sarg =
   match sarg with
   | ASTSingleArg (ident, t) -> (
-    Printf.printf "singleArg(" ;
-    Printf.printf "%s" ident ;
-    Printf.printf ":";
+    Printf.printf "(";
+    Printf.printf "%s" ident;
+    Printf.printf ",";
     print_singleType t;
     Printf.printf ")")
 
@@ -43,7 +43,7 @@ let rec print_args args =
 let rec print_singleExpr e =
   match e with
   | ASTNum n -> Printf.printf "num(%d)" n
-  | ASTId x -> Printf.printf "id(%s)" x
+  | ASTId id -> Printf.printf "id(%s)" id
   | ASTIf(cond, consequence, alternative) -> (
       Printf.printf "if";
       Printf.printf "(";
@@ -52,27 +52,29 @@ let rec print_singleExpr e =
       print_singleExpr consequence;
       Printf.printf ",";
       print_singleExpr alternative;
-      Printf.printf ")";)
+      Printf.printf ")")
   | ASTAnd(op1, op2) -> (
       Printf.printf "and";
       Printf.printf "(";
       print_singleExpr op1;
       Printf.printf ",";
       print_singleExpr op2;
-      Printf.printf ")";)
+      Printf.printf ")")
   | ASTOr(op1, op2) -> (
       Printf.printf "or";
       Printf.printf "(";
       print_singleExpr op1;
       Printf.printf ",";
       print_singleExpr op2;
-      Printf.printf ")";)
+      Printf.printf ")")
   | ASTApp(e, es) -> (
       Printf.printf "app(";
       print_singleExpr e;
-      Printf.printf ",(";
+      Printf.printf ",";
+      Printf.printf "[";
       print_exprs es;
-      Printf.printf "))")
+      Printf.printf "]";
+      Printf.printf ")")
   | ASTLambdaExpression(args, singleExpr) -> (
       Printf.printf "lambda";
       Printf.printf "(";
@@ -81,13 +83,12 @@ let rec print_singleExpr e =
       Printf.printf "]";
       Printf.printf ",";
       print_singleExpr singleExpr;
-      Printf.printf ")";)
+      Printf.printf ")")
 
 and print_exprs es =
   match es with
   | [] -> ()
-  | [e] ->
-      print_singleExpr e
+  | [e] -> print_singleExpr e
   | e::es -> (
       print_singleExpr e;
       print_char ',';
@@ -98,23 +99,24 @@ let print_stat s =
   | ASTEcho e -> (
       Printf.printf "echo";
       Printf.printf "(";
-      print_singleExpr e;
+      print_singleExpr(e);
       Printf.printf ")")
 
 let print_def d =
   match d with
-  | ASTConst(id, t, e) -> (
+  | ASTConst(ident, t, e) -> (
       Printf.printf "const";
       Printf.printf "(";
-      Printf.printf "%s," id;
+      Printf.printf "%s" ident;
+      Printf.printf ",";
       print_singleType t;
       Printf.printf ",";
       print_singleExpr e;
-      Printf.printf ")";)
-  | ASTFun(id, t, args, e) -> (
+      Printf.printf ")")
+  | ASTFun(ident, t, args, e) -> (
       Printf.printf "fun";
       Printf.printf "(";
-      Printf.printf "%s," id;
+      Printf.printf "%s" ident;
       Printf.printf ",";
       print_singleType t;
       Printf.printf ",";
@@ -124,10 +126,10 @@ let print_def d =
       Printf.printf ",";
       print_singleExpr e;
       Printf.printf ")")
-  | ASTFunRec(id, t, args, e) -> (
+  | ASTFunRec(ident, t, args, e) -> (
       Printf.printf "funRec";
       Printf.printf "(";
-      Printf.printf "%s," id;
+      Printf.printf "%s" ident;
       Printf.printf ",";
       print_singleType t;
       Printf.printf ",";
@@ -140,14 +142,14 @@ let print_def d =
 
 let rec print_cmds c =
   match c with
-  | ASTStat s -> print_stat s
+  ASTStat s -> print_stat s
   | ASTDef(def,c) -> (
     Printf.printf "cmds";
     Printf.printf "(";
     print_def def;
-    Printf.printf ";";
-    print_cmds c;
-    Printf.printf ")")
+    Printf.printf ")";
+    Printf.printf ",";
+    print_cmds c)
 
 let print_prog p =
   Printf.printf("prog");
@@ -155,11 +157,10 @@ let print_prog p =
   Printf.printf("[");
   print_cmds p;
   Printf.printf("]");
-  Printf.printf(")");
-  Printf.printf(".\n")
+  Printf.printf(")")
 ;;
 
-let fname = Sys.argv.(1) in (*debugger fait avec l'aide du pro, merci a lui*)
+let fname = Sys.argv.(1) in (*debugger fait avec l'aide du prof, merci a lui*)
 let ic = open_in fname in
 try
   let lexbuf = Lexing.from_channel ic in
