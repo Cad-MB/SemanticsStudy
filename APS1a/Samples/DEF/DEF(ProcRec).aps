@@ -1,0 +1,4 @@
+[
+    PROC REC abdelkader [x:int, y:int] [ECHO (add x y)];
+    ECHO 5
+]

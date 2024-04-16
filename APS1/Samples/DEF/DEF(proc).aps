@@ -1,4 +1,4 @@
 [
-    PROC hichem [x:int, y:int] [ECHO (add x y)];
-    ECHO (hichem 2 3)
+    PROC t [x: int] [ ECHO x ];
+    CALL t 50
 ]

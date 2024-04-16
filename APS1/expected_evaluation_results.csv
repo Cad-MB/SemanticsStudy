@@ -5,8 +5,11 @@ Samples/TYPE/TYPES.aps, 43
 Samples/ER(2023_3).aps, 5
 Samples/prog7.aps, 5
 Samples/DEF/DEF(const).aps, 3
+Samples/DEF/DEF(VAR).aps, 5
 Samples/DEF/DEF(funRec).aps, 6
 Samples/DEF/DEF(fun).aps, 50
+Samples/DEF/DEF(proc).aps, 50
+Samples/DEF/DEF(ProcRec).aps, 1
 Samples/EXPR/EXPR(if_1).aps, 0
 Samples/EXPR/EXPR(or_10).aps, 1
 Samples/EXPR/EXPR(app_mul).aps, 25
@@ -37,6 +40,10 @@ Samples/prog10.aps, 56
 Samples/ER(2023_1).aps, 5
 Samples/ER(2024_1).aps, 3
 Samples/STAT/STAT(echo).aps, 42
+Samples/STAT/STAT(set).aps, 5
+Samples/STAT/STAT(if).aps, 5
+Samples/STAT/STAT(call).aps, 50
+Samples/STAT/STAT(while).aps, 10
 Samples/prog1.aps, 20
 Samples/prog6.aps, 9
 Samples/ER(2023_2).aps, 3

@@ -1,0 +1,4 @@
+[
+    FUN REC f int [x:int] 0; 
+    ECHO 56
+]

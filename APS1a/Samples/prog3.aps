@@ -1,0 +1,4 @@
+[   
+    CONST x int 10 ;
+    ECHO (add x (add x 10)) 
+]

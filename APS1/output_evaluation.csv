@@ -1,57 +1,57 @@
 sample path, correct (yes/no), result,  expected
-Samples/CMDS/CMDS(defs).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/CMDS/CMDS(end).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  42
-Samples/TYPE/TYPE.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  5
-Samples/TYPE/TYPES.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  43 
-Samples/ER(2023_3).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  5
-Samples/prog7.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  5
-Samples/DEF/DEF(proc).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/DEF/DEF(VAR).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/DEF/DEF(const).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  3
-Samples/DEF/DEF(ProcRec).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/DEF/DEF(funRec).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  6
-Samples/DEF/DEF(fun).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  50
-Samples/EXPR/EXPR(if_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  0
-Samples/EXPR/EXPR(or_10).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(app_mul).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  25
-Samples/EXPR/EXPR(app_f).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  50
-Samples/EXPR/EXPR(not_0).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(if_0).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(lt_0).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  0
-Samples/EXPR/EXPR(num).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  42
-Samples/EXPR/EXPR(and_01).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  11
-Samples/EXPR/EXPR(eq_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(app_sub).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  25
-Samples/EXPR/EXPR(and_11).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  10
-Samples/EXPR/EXPR(app_add).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  43
-Samples/EXPR/EXPR(app_div).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  2
-Samples/EXPR/EXPR(or_01).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(not_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  0
-Samples/EXPR/EXPR(or_11).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(or_00).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  0
-Samples/EXPR/EXPR(id).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  3
-Samples/EXPR/EXPR(and_10).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  11
-Samples/EXPR/EXPR(lt_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  1
-Samples/EXPR/EXPR(and_00).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  11
-Samples/EXPR/EXPR(eq_0).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  0
-Samples/EXPR/EXPR(abs).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  42
-Samples/prog9.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  2
-Samples/prog10.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  56
-Samples/ER(2023_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  5
-Samples/ER(2024_1).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  3
-Samples/STAT/STAT(if).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/STAT/STAT(while).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/STAT/STAT(call).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/STAT/STAT(set).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type, 
-Samples/STAT/STAT(echo).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  42
-Samples/prog1.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  20
-Samples/prog6.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  9
-Samples/ER(2023_2).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  3
-Samples/prog8.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  3
-Samples/ER(2024_2).aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  6
-Samples/prog4.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  100
-Samples/prog3.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  30
-Samples/prog0.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  42
-Samples/ARG/ARGS.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  50
-Samples/prog2.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  22
-Samples/prog5.aps, no, test_samples.sh: ligne 38: ./evaluateur: Aucun fichier ou dossier de ce type,  2
+Samples/CMDS/CMDS(defs).aps, yes, 1,  1
+Samples/CMDS/CMDS(end).aps, yes, 42,  42
+Samples/TYPE/TYPE.aps, yes, 5,  5
+Samples/TYPE/TYPES.aps, yes, 43,  43 
+Samples/ER(2023_3).aps, yes, 5,  5
+Samples/prog7.aps, yes, 5,  5
+Samples/DEF/DEF(proc).aps, yes, 50,  50
+Samples/DEF/DEF(VAR).aps, yes, 5,  5
+Samples/DEF/DEF(const).aps, yes, 3,  3
+Samples/DEF/DEF(ProcRec).aps, yes, 1,  1
+Samples/DEF/DEF(funRec).aps, yes, 6,  6
+Samples/DEF/DEF(fun).aps, yes, 50,  50
+Samples/EXPR/EXPR(if_1).aps, yes, 0,  0
+Samples/EXPR/EXPR(or_10).aps, yes, 1,  1
+Samples/EXPR/EXPR(app_mul).aps, yes, 25,  25
+Samples/EXPR/EXPR(app_f).aps, yes, 50,  50
+Samples/EXPR/EXPR(not_0).aps, yes, 1,  1
+Samples/EXPR/EXPR(if_0).aps, yes, 1,  1
+Samples/EXPR/EXPR(lt_0).aps, yes, 0,  0
+Samples/EXPR/EXPR(num).aps, yes, 42,  42
+Samples/EXPR/EXPR(and_01).aps, yes, 11,  11
+Samples/EXPR/EXPR(eq_1).aps, yes, 1,  1
+Samples/EXPR/EXPR(app_sub).aps, yes, 25,  25
+Samples/EXPR/EXPR(and_11).aps, yes, 10,  10
+Samples/EXPR/EXPR(app_add).aps, yes, 43,  43
+Samples/EXPR/EXPR(app_div).aps, yes, 2,  2
+Samples/EXPR/EXPR(or_01).aps, yes, 1,  1
+Samples/EXPR/EXPR(not_1).aps, yes, 0,  0
+Samples/EXPR/EXPR(or_11).aps, yes, 1,  1
+Samples/EXPR/EXPR(or_00).aps, yes, 0,  0
+Samples/EXPR/EXPR(id).aps, yes, 3,  3
+Samples/EXPR/EXPR(and_10).aps, yes, 11,  11
+Samples/EXPR/EXPR(lt_1).aps, yes, 1,  1
+Samples/EXPR/EXPR(and_00).aps, yes, 11,  11
+Samples/EXPR/EXPR(eq_0).aps, yes, 0,  0
+Samples/EXPR/EXPR(abs).aps, yes, 42,  42
+Samples/prog9.aps, yes, 2,  2
+Samples/prog10.aps, yes, 56,  56
+Samples/ER(2023_1).aps, yes, 5,  5
+Samples/ER(2024_1).aps, yes, 3,  3
+Samples/STAT/STAT(if).aps, yes, 5,  5
+Samples/STAT/STAT(while).aps, yes, 10,  10
+Samples/STAT/STAT(call).aps, yes, 50,  50
+Samples/STAT/STAT(set).aps, yes, 5,  5
+Samples/STAT/STAT(echo).aps, yes, 42,  42
+Samples/prog1.aps, yes, 20,  20
+Samples/prog6.aps, yes, 9,  9
+Samples/ER(2023_2).aps, yes, 3,  3
+Samples/prog8.aps, yes, 3,  3
+Samples/ER(2024_2).aps, yes, 6,  6
+Samples/prog4.aps, yes, 100,  100
+Samples/prog3.aps, yes, 30,  30
+Samples/prog0.aps, yes, 42,  42
+Samples/ARG/ARGS.aps, yes, 50,  50
+Samples/prog2.aps, yes, 22,  22
+Samples/prog5.aps, yes, 2,  2

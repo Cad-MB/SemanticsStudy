@@ -1,7 +1,7 @@
 [
     VAR x int;
     SET x 5;
-    WHILE (eq x 5) [
+    WHILE (lt x 10) [
         SET x (add x 1);
         ECHO x
     ]

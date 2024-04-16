@@ -1,5 +1,4 @@
 [
     CONST x int 5;
-    if true [ECHO x] [ECHO 0];
-    ECHO 1
+    if true [ECHO x] [ECHO 0]
 ]

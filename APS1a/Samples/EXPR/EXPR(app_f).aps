@@ -1,0 +1,4 @@
+[ 
+    FUN f int [x:int, y:int] (add (mul 42 x) (sub (div y 2) 42));
+    ECHO (f 1 100)
+]

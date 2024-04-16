@@ -1,0 +1,58 @@
+sample path, correct (yes/no), result,  expected
+Samples/prog7.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  5
+Samples/ER(2024_2).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  6
+Samples/ER(2024_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  3
+Samples/ER(2023_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  5
+Samples/prog4.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  100
+Samples/CMDS/CMDS(defs).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/CMDS/CMDS(end).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  42
+Samples/prog8.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  3
+Samples/prog6.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  9
+Samples/ER(2023_3).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  5
+Samples/EXPR/EXPR(if_0).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(and_00).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  11
+Samples/EXPR/EXPR(lt_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(eq_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(abs).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  42
+Samples/EXPR/EXPR(not_0).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(lt_0).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  0
+Samples/EXPR/EXPR(and_01).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  11
+Samples/EXPR/EXPR(and_11).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  10
+Samples/EXPR/EXPR(and_10).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  11
+Samples/EXPR/EXPR(or_11).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(app_mul).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  25
+Samples/EXPR/EXPR(app_sub).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  25
+Samples/EXPR/EXPR(or_01).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(app_add).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  43
+Samples/EXPR/EXPR(num).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  42
+Samples/EXPR/EXPR(app_f).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  50
+Samples/EXPR/EXPR(if_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  0
+Samples/EXPR/EXPR(or_00).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  0
+Samples/EXPR/EXPR(id).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  3
+Samples/EXPR/EXPR(not_1).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  0
+Samples/EXPR/EXPR(eq_0).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  0
+Samples/EXPR/EXPR(or_10).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  1
+Samples/EXPR/EXPR(app_div).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  2
+Samples/prog0.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  42
+Samples/TYPE/TYPE.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  5
+Samples/TYPE/TYPES.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  43 
+Samples/STAT/STAT(call-aps1a).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/STAT/STAT(call).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/STAT/STAT(set).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/STAT/STAT(echo).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  42
+Samples/STAT/STAT(while).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/STAT/STAT(if).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/prog2.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  22
+Samples/ARG/ARGS.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  50
+Samples/prog5.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  2
+Samples/ER(2023_2).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  3
+Samples/prog3.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  30
+Samples/prog10.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  56
+Samples/prog9.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  2
+Samples/prog1.aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  20
+Samples/DEF/DEF(ProcRec).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/DEF/DEF(proc).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/DEF/DEF(const).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  3
+Samples/DEF/DEF(VAR).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory, 
+Samples/DEF/DEF(fun).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  50
+Samples/DEF/DEF(funRec).aps, no, test_samples.sh: line 38: ./evaluateur: No such file or directory,  6
