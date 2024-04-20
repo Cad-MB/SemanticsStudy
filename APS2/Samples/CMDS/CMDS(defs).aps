@@ -1,0 +1,6 @@
+[ 
+    CONST a int 1;
+    CONST b int 3;  
+    FUN f int [x: int, y: int] (add (mul 42 x) (sub (div y 2) 42));
+    ECHO (f a b)
+]

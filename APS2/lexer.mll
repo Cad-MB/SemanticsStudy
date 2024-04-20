@@ -22,6 +22,7 @@ rule token = parse
   | "FUN"            { FUN }
   | "REC"            { REC }
   | "VAR"            { VAR }
+  | "var"            { VARADR }
   | "PROC"           { PROC }
   | "ECHO"           { ECHO } 
   | "SET"            { SET } 
@@ -33,6 +34,12 @@ rule token = parse
   | "or"             { OR }
   | "bool"           { BOOL }
   | "int"            { INT }
+  | "adr"            { ADR }
+  | "vec"            { VEC }
+  | "alloc"          { ALLOC }
+  | "len"            { LEN }
+  | "nth"            { NTH }
+  | "vset"            { VSET }
   (*Constantes numeriques*)
   | ['0'-'9']+('.'['0'-'9'])? as lxm { NUM(int_of_string lxm) }
   (*Identificateurs*)
