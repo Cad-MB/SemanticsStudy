@@ -47,11 +47,22 @@ Samples/STAT/STAT(echo).aps, yes, 42,  42
 Samples/prog1.aps, yes, 20,  20
 Samples/prog6.aps, yes, 9,  9
 Samples/ER(2023_2).aps, yes, 3,  3
+Samples/APS1a/incr(ref).aps, no, Syntax error on line 1, column 19,  6
+Samples/APS1a/recPow.aps, no, Syntax error on line 1, column 30,  8
+Samples/APS1a/swap.aps, no, Syntax error on line 1, column 23,  10
 Samples/prog8.aps, yes, 3,  3
 Samples/ER(2024_2).aps, yes, 6,  6
 Samples/prog4.aps, yes, 100,  100
 Samples/prog3.aps, yes, 30,  30
 Samples/prog0.aps, yes, 42,  42
+Samples/APS0/isEven.aps, yes, 10,  10
+Samples/APS0/fact.aps, yes, 120,  120
+Samples/APS0/pgcd.aps, yes, 6,  6
+Samples/APS0/fib.aps, yes, 55,  55
+Samples/APS0/pow.aps, yes, 256,  256
 Samples/ARG/ARGS.aps, yes, 50,  50
+Samples/APS1/set.aps, yes, 30,  30
+Samples/APS1/proc.aps, yes, 7,  7
+Samples/APS1/while.aps, yes, 15,  15
 Samples/prog2.aps, yes, 22,  22
 Samples/prog5.aps, yes, 2,  2

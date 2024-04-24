@@ -1,9 +1,10 @@
+# Nom du fichier de sortie CSV pour le typage
 output_file_typage="output_typage.csv"
 # Nom du fichier de sortie CSV pour evaluation
 output_file_evaluation="output_evaluation.csv"
 
 # Effacer le contenu du fichier de sortie s'il existe déjà et écrire l'en-tête CSV
-echo "sample path, correct (yes/no), result, typage" > "$output_file_typage"
+echo "sample path, correct (yes/no), result, prologTerm" > "$output_file_typage"
 echo "sample path, correct (yes/no), result" > "$output_file_evaluation"
 
 # Fusionner les fichiers expected_evaluation_results.csv et output_evaluation.csv basés sur la colonne 'path'

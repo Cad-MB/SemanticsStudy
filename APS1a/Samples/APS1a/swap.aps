@@ -1,0 +1,14 @@
+[ 
+    PROC swap [var x:int, var y:int] [ 
+        VAR temp int; 
+        SET temp x; 
+        SET x y; 
+        SET y temp 
+    ]; 
+    VAR a int; 
+    VAR b int; 
+    SET a 10; 
+    SET b 20; 
+    CALL swap (adr a) (adr b); 
+    ECHO b 
+]

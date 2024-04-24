@@ -48,3 +48,9 @@ Samples/prog0.aps, 42
 Samples/ARG/ARGS.aps, 50
 Samples/prog2.aps, 22
 Samples/prog5.aps, 2
+Samples/APS0/fact.aps, 120
+Samples/APS0/fib.aps, 55
+Samples/APS0/isEven.aps, 10
+Samples/APS0/pgcd.aps, 6
+Samples/APS0/pow.aps, 256
+Samples/APS0/sum.aps, 55

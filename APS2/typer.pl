@@ -110,8 +110,8 @@ type_def(G,procRec(PROCEDURE,ARGUMENTS,E),GI):-
 type_stat(G,echo(E),void) :-
 	type_expr(G,E,int).	
     /* (SET) */
-type_stat(G,set(id(X),E),void):-
-    type_expr(G,id(X),ref(T)),
+type_stat(G,set(LVALUE,E),void):-
+    type_lvalue(G,LVALUE,T),
     type_expr(G,E,T).
     /* (IF) */
 type_stat(G,if(E1,E2,E3),void) :-
@@ -126,6 +126,15 @@ type_stat(G,while(C,E),void) :-
 type_stat(G,call(X,ARGUMENTS),void) :-
     type_expr(G,X,funType(ARGSTYPE,void)),
     verifier_argumentsp(G,ARGUMENTS,ARGSTYPE).
+
+/* lValue */
+    /* (LVAR) */
+type_lvalue(G,id(X),T):-
+    type_expr(G,id(X),ref(T)).
+    /* (LNTH) */
+type_lvalue(G,vectorValue(E1,E2),T):-
+    type_expr(G,E1,vectorType(T)),
+    type_expr(G,E2,int).
 
 /* Parametres d'appel */
     /* (REF) */
@@ -167,6 +176,21 @@ type_expr(G,lambda(ARGUMENTS,E),funType(TYPEIS,T)):-
     append(ARGUMENTS,G,GI),
     recupererTypeArgs(ARGUMENTS,TYPEIS),
     type_expr(GI,E,T).
+    /* (ALLOC) */
+type_expr(G,alloc(E),vectorType(_)):-
+    type_expr(G,E,int).
+    /* (LEN) */
+type_expr(G,len(E),int):-
+    type_expr(G,E,vectorType(_)).
+    /* (NTH) */
+type_expr(G,nth(E1,E2),T):-
+    type_expr(G,E1,vectorType(T)),
+    type_expr(G,E2,int).
+    /* (VSET) */
+type_expr(G,vset(E1,E2,E3),vectorType(T)):-
+    type_expr(G,E1,vectorType(T)),
+    type_expr(G,E2,int),
+    type_expr(G,E3,T).
 
 
 main_stdin :-

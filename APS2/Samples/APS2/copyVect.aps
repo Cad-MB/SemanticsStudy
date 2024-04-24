@@ -1,0 +1,18 @@
+[ 
+    VAR src (vec int);
+    SET src (alloc 10); 
+    SET (nth src 0) 7; 
+    SET (nth src 1) 8; 
+    SET (nth src 2) 9; 
+    VAR dest (vec int);
+    SET dest (alloc (len src)); 
+    VAR i int; 
+    SET i 0; 
+    WHILE (lt i (len src)) [ 
+        SET (nth dest i) (nth src i); 
+        SET i (add i 1) 
+    ]; 
+    ECHO (nth dest 0);
+    ECHO (nth dest 1);
+    ECHO (nth dest 2)
+]

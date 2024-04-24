@@ -1,0 +1,22 @@
+[
+    VAR nums (vec int);
+    SET nums (alloc 5);
+    SET (nth nums 0) 1;
+    SET (nth nums 1) 3;
+    SET (nth nums 2) 2;
+    SET (nth nums 3) 5;
+    SET (nth nums 4) 4;
+    VAR max int;
+    SET max (nth nums 0);
+    VAR i int;
+    SET i 1;
+    WHILE (lt i (len nums)) [
+        if (lt max (nth nums i)) [
+            SET max (nth nums i)
+        ][
+            ECHO 1
+        ];
+        SET i (add i 1)
+    ];
+    ECHO max
+]

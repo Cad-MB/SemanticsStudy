@@ -55,3 +55,15 @@ Samples/prog0.aps, 42
 Samples/ARG/ARGS.aps, 50
 Samples/prog2.aps, 22
 Samples/prog5.aps, 2
+Samples/APS0/fact.aps, 120
+Samples/APS0/fib.aps, 55
+Samples/APS0/isEven.aps, 10
+Samples/APS0/pgcd.aps, 6
+Samples/APS0/pow.aps, 256
+Samples/APS0/sum.aps, 55
+Samples/APS1/proc.aps, 7
+Samples/APS1/set.aps, 30
+Samples/APS1/while.aps, 15
+Samples/APS1a/incr(ref).aps, 6
+Samples/APS1a/swap.aps, 10
+Samples/APS1a/recPow.aps, 8

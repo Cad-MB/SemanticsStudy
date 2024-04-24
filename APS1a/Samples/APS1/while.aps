@@ -1,0 +1,12 @@
+[
+    VAR counter int;
+    VAR sum int;
+    SET counter 5;
+    SET sum 0;
+    WHILE (lt 0 counter)
+        [
+            SET sum (add sum counter);
+            SET counter (sub counter 1)
+        ];
+    ECHO sum
+]

@@ -41,10 +41,10 @@ Samples/ER(2023_1).aps, 5
 Samples/ER(2024_1).aps, 3
 Samples/STAT/STAT(echo).aps, 42
 Samples/STAT/STAT(set).aps, 5
-Samples/STAT/STAT(if).aps, 1
+Samples/STAT/STAT(if).aps,5 1
 Samples/STAT/STAT(call).aps, 15
-Samples/STAT/STAT(call-aps1a).aps, 2
-Samples/STAT/STAT(while).aps, 10
+Samples/STAT/STAT(call-aps1a).aps,1 2
+Samples/STAT/STAT(while).aps,6 7 8 9 10
 Samples/prog1.aps, 20
 Samples/prog6.aps, 9
 Samples/ER(2023_2).aps, 3
@@ -56,7 +56,23 @@ Samples/prog0.aps, 42
 Samples/ARG/ARGS.aps, 50
 Samples/prog2.aps, 22
 Samples/prog5.aps, 2
+Samples/APS0/fact.aps, 120
+Samples/APS0/fib.aps, 55
+Samples/APS0/isEven.aps, 10
+Samples/APS0/pgcd.aps, 6
+Samples/APS0/pow.aps, 256
+Samples/APS0/sum.aps, 55
+Samples/APS1/proc.aps, 7
+Samples/APS1/set.aps, 30
+Samples/APS1/while.aps, 15
 Samples/APS1a/incr(ref).aps, 6
-Samples/APS1a/incr(val).aps, 5
-Samples/APS1a/max.aps, 20
-Samples/APS1a/swap.aps, 1
+Samples/APS1a/swap.aps, 10
+Samples/APS1a/recPow.aps, 8
+Samples/APS2/vect.aps, 1
+Samples/APS2/copyVect.aps,7 8 9
+Samples/APS2/maxVec.aps,1 1 5
+Samples/APS2/ER2_2023.aps,0 1 2
+Samples/APS2/matrix.aps,0 1 2 3
+Samples/APS2/invertTab.aps,5 4 3 2 1
+Samples/APS2/bigVect.aps,0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+Samples/APS2/isPalindrome.aps,9 9 9 1 0 0 9 9 9 1

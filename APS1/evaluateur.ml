@@ -1,9 +1,11 @@
 open Ast
 
+(* Définition de la mémoire : adresse vers valeur entière *)
 type address = int
 type memory = (address, int) Hashtbl.t
-let next_address = ref 0
+let next_address = ref 0 (* Prochaine adresse libre pour l'allocation en mémoire *)
 
+(* Vérification de la conformité d'un opérateur primitif avec APS1 *)
 let primOpCheck op = 
   match op with
   | ASTId("not") -> true
@@ -17,12 +19,14 @@ let primOpCheck op =
   | ASTId("false") -> true
   | _ -> false
 
+(* Détermination si l'opérateur est un booléen (true/false) *)
 let boolOp op = 
   match op with
   | "true" -> true
   | "false" -> true
   | _ -> false
 
+(* Types pour la sortie, l'environnement d'exécution, et les valeurs manipulées *)
 type output = value list
 and env = (string, value) Hashtbl.t
 and value = 
@@ -34,29 +38,33 @@ and value =
   | InPR of cmds * string * string list * env
   | Closure of cmds * string list * env
 
+(* Allocation d'une nouvelle adresse en mémoire *)
 let alloc mem =
   let addr = !next_address in
   incr next_address;
   Hashtbl.add mem addr 0; 
   addr
   
-let print_value value = 
+(* Affichage des valeurs entières, extension des effets de bord en APS1 *)
+let print_value value = (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match value with
     InZ(n) -> Printf.printf "%d\n" n
   | _ -> failwith ("Non-integer type")
 
 type output_stream = int list
 
-let get_arg_ident (arg) =   
+(* Extraction des identifiants des arguments, support pour fonctions et procédures *)
+let get_arg_ident (arg) =   (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match arg with 
   ASTSingleArg (ident,_) -> ident 
   
-let rec get_args_in_string_list (argz) : (string list) =   
+let rec get_args_in_string_list (argz) : (string list) =   (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match argz with 
   |  [] -> []
   |  a::argz2 -> 
       (get_arg_ident a)::(get_args_in_string_list argz2)
 
+(* Évaluation des opérateurs primitifs selon les règles d'APS1 *)
 let eval_prim op args = 
   match op, args with
   | ASTId("not"), [InZ n] -> InZ (if n = 0 then 1 else 0)
@@ -68,12 +76,14 @@ let eval_prim op args =
   | ASTId("div"), [InZ n1; InZ n2] -> InZ (n1 / n2)
   | _ -> failwith ("Unsupported operator or arguments")
 
+(* Conversion des opérateurs booléens en valeurs entières conformément à APS1 *)
 let eval_bool op  = 
   match op with
   | "true" -> InZ 1
   | "false" -> InZ 0
   | _ -> failwith ("Unsupported bool operator")
 
+(* Évaluation des expressions avec prise en compte de la mémoire pour APS1 *)
 let rec eval_expr (rho : env) (sigma : memory) (expr : singleExpr) : value =
   match expr with
   | ASTNum n -> InZ n
@@ -142,6 +152,7 @@ let rec eval_expr (rho : env) (sigma : memory) (expr : singleExpr) : value =
        eval_expr new_rho sigma body_lambda
    | _ -> failwith "Function calls with complex expressions as functions not supported")
 
+(* Gestion des instructions impératives APS1, y compris affectation et boucles *)
 and eval_stat (rho : env) (sigma : memory) (omega : output) (instruction : stat) : memory * output =
   match instruction with
   | ASTEcho expr ->
@@ -195,6 +206,7 @@ and eval_stat (rho : env) (sigma : memory) (omega : output) (instruction : stat)
         eval_block new_rho sigma omega (ASTBlock cmds)
     | _ -> failwith ("Proc " ^ proc_name ^ " not declared during the call"))
 
+(* Traitement des définitions de variables et procédures selon APS1 *)
 and eval_def (rho : env) (sigma : memory) (definition : def) : env * memory =
   match definition with
   | ASTConst (x, _, expr) ->
@@ -229,6 +241,7 @@ and eval_def (rho : env) (sigma : memory) (definition : def) : env * memory =
     Hashtbl.add rho name proc_val;
     (rho, sigma)
 
+(* Évaluation récursive des suites de commandes dans APS1, traitant effets et mémoire *)
 and eval_cmds cmds env sigma omega = 
   match cmds with
   | ASTDef (def, more_cmds) ->
@@ -241,19 +254,21 @@ and eval_cmds cmds env sigma omega =
       let updated_sigma, updated_omega = eval_stat env sigma omega stat in
       eval_cmds cmds env updated_sigma updated_omega
 
+(* Évaluation d'un bloc de commandes, cadre pour structures de contrôle et procédures dans APS1 *)
 and eval_block (rho : env) (sigma : memory) (omega : output) (block : Ast.block) : memory * output =
   match block with
   | ASTBlock cmds -> eval_cmds cmds rho sigma omega
 
-  let rec eval_prog (p : Ast.block) =
-    let rho_init = Hashtbl.create 100 in  
-    let sigma_init = Hashtbl.create 100 in  
-    let omega_init = [] in  
-    let _, final_output = eval_block rho_init sigma_init omega_init p in
-    List.iter print_value final_output  
-
+(* Point d'entrée pour l'évaluation de programmes APS1, initie mémoire et environnement *)
+let rec eval_prog (p : Ast.block) =
+  let rho_init = Hashtbl.create 100 in  
+  let sigma_init = Hashtbl.create 100 in  
+  let omega_init = [] in  
+  let _, final_output = eval_block rho_init sigma_init omega_init p in
+  List.iter print_value final_output  
 ;;
 
+(* Lecture et évaluation du programme APS1 depuis un fichier d'entrée, gestion des erreurs de syntaxe *)
 let fname = Sys.argv.(1) in
 let ic = open_in fname in
 try

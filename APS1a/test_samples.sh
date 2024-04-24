@@ -1,3 +1,4 @@
+# Nom du fichier de sortie CSV pour le typage
 output_file_typage="output_typage.csv"
 # Nom du fichier de sortie CSV pour evaluation
 output_file_evaluation="output_evaluation.csv"

@@ -1,0 +1,11 @@
+[
+    PROC addTwo [x : int]
+    [
+        VAR temp int;
+        SET temp (add x 2);
+        ECHO temp
+    ];
+    VAR value int;
+    SET value 5;
+    CALL addTwo value
+]

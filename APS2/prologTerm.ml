@@ -5,6 +5,11 @@ let rec print_singleType stype =
   | Type(Bool)-> Printf.printf "bool"
   | Type(Int)-> Printf.printf "int"
   | Type(Void)-> Printf.printf "void" (* type void n'existe pas dans le formulaire mais le prof nous a dit qu'il faut l'ajouter *)
+  | ASTVectorType(t) -> (
+    Printf.printf "vectorType";
+    Printf.printf "(";
+    print_singleType t;
+    Printf.printf ")")
   | TypeFun(types, t) -> (
     Printf.printf "funType";
     Printf.printf "(";
@@ -116,6 +121,33 @@ let rec print_singleExpr e =
       Printf.printf ",";
       print_singleExpr singleExpr;
       Printf.printf ")")
+  | ASTAlloc e -> (
+      Printf.printf "alloc";
+      Printf.printf "(";
+      print_singleExpr e;
+      Printf.printf ")")
+  | ASTLen e -> (
+      Printf.printf "len";
+      Printf.printf "(";
+      print_singleExpr e;
+      Printf.printf ")")
+  | ASTNth (e1, e2) -> (
+      Printf.printf "nth";
+      Printf.printf "(";
+      print_singleExpr e1;
+      Printf.printf ",";
+      print_singleExpr e2;
+      Printf.printf ")")
+  | ASTVset (e1, e2, e3) -> (
+      Printf.printf "vset";
+      Printf.printf "(";
+      print_singleExpr e1;
+      Printf.printf ",";
+      print_singleExpr e2;
+      Printf.printf ",";
+      print_singleExpr e3;
+      Printf.printf ")")
+
 
 and print_exprs es =
   match es with
@@ -145,6 +177,17 @@ and print_exprs_proc eps =
     print_exprs_proc eps
   )
 
+and print_lValue lvalue =
+  match lvalue with
+  | ASTLValueIdent ident -> Printf.printf"id(%s)" ident
+  | ASTVectorValue (lv, e) -> 
+    Printf.printf "vectorValue";
+    Printf.printf "(";
+    print_lValue lv;
+    Printf.printf ",";
+    print_singleExpr e;
+    Printf.printf ")"
+
 and print_stat s =
   match s with
   | ASTEcho e -> (
@@ -152,10 +195,10 @@ and print_stat s =
       Printf.printf "(";
       print_singleExpr(e);
       Printf.printf ")")
-  | ASTSet (ident, expr) -> 
+  | ASTSet (lv, expr) -> 
       Printf.printf "set";
       Printf.printf "(";
-      Printf.printf "id(%s)" ident;
+      print_lValue lv;
       Printf.printf ",";
       print_singleExpr expr;
       Printf.printf ")"

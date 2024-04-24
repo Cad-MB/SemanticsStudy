@@ -1,0 +1,22 @@
+[
+  VAR vec0 (vec int);
+  SET vec0 (alloc 3);
+  SET (nth vec0 0) 0;
+  SET (nth vec0 1) 1;
+
+  VAR vec1 (vec int);
+  SET vec1 (alloc 3); 
+  SET (nth vec1 0) 2;
+  SET (nth vec1 1) 3;
+
+  VAR matrice (vec (vec int));
+  SET matrice (alloc 4);   
+  SET (nth matrice 0) vec0;
+  SET (nth matrice 1) vec1; 
+  
+  ECHO (nth (nth matrice 0) 0);
+  ECHO (nth (nth matrice 0) 1);
+  ECHO (nth (nth matrice 1) 0);
+  ECHO (nth (nth matrice 1) 1)
+  
+]

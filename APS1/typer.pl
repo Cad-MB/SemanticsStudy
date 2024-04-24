@@ -89,9 +89,9 @@ type_def(G,proc(PROCEDURE,ARGUMENTS,E),GI):-
 type_def(G,procRec(PROCEDURE,ARGUMENTS,E),GI):-
     recupererTypeArgs(ARGUMENTS,TYPEIS),
 	append(ARGUMENTS,G,G2), 
-    G3 =[(PROCEDURE,typeFunc(TYPEIS,T))|G2],
+    G3 =[(PROCEDURE,funType(TYPEIS,T))|G2],
 	type_bloc(G3,E,T),
-	GI=[(PROCEDURE,typeFunc(TYPEIS,T))|G].
+	GI=[(PROCEDURE,funType(TYPEIS,T))|G].
 
 /* Intruction */
     /* (ECHO) */

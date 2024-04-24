@@ -1,0 +1,79 @@
+[ 
+    PROC isPalindrome [x : (vec int)] 
+    [ 
+        VAR i int; 
+        SET i 0; 
+        VAR j int; 
+        SET j (sub (len x) 1); 
+        VAR result int; 
+        SET result 1; 
+        WHILE (lt i j) 
+        [ 
+            if (eq (nth x i) (nth x j)) 
+            [
+                ECHO 9
+            ] 
+            [ 
+                SET result 0 
+            ]; 
+            SET i (add i 1); 
+            SET j (sub j 1) 
+        ]; 
+        ECHO result 
+    ]; 
+
+    VAR word0 (vec int); 
+    SET word0 (alloc 7); 
+    SET (nth word0 0) 5; 
+    SET (nth word0 1) 6; 
+    SET (nth word0 2) 9; 
+    SET (nth word0 3) 1; 
+    SET (nth word0 4) 9; 
+    SET (nth word0 5) 6; 
+    SET (nth word0 6) 5; 
+
+    VAR word1 (vec int); 
+    SET word1 (alloc 7); 
+    SET (nth word1 0) 5; 
+    SET (nth word1 1) 33; 
+    SET (nth word1 2) 22; 
+    SET (nth word1 3) 37; 
+    SET (nth word1 4) 21; 
+    SET (nth word1 5) 300; 
+    SET (nth word1 6) 23; 
+
+    VAR word2 (vec int); 
+    SET word2 (alloc 7); 
+    SET (nth word2 0) 25; 
+    SET (nth word2 1) 37; 
+    SET (nth word2 2) 23; 
+    SET (nth word2 3) 39; 
+    SET (nth word2 4) 27; 
+    SET (nth word2 5) 38; 
+    SET (nth word2 6) 21; 
+
+    VAR word3 (vec int); 
+    SET word3 (alloc 7); 
+    SET (nth word3 0) 1; 
+    SET (nth word3 1) 2; 
+    SET (nth word3 2) 3; 
+    SET (nth word3 3) 4; 
+    SET (nth word3 4) 3; 
+    SET (nth word3 5) 2; 
+    SET (nth word3 6) 1; 
+
+    VAR dictionary (vec (vec int)); 
+    SET dictionary (alloc 4); 
+    SET (nth dictionary 0) word0; 
+    SET (nth dictionary 1) word1; 
+    SET (nth dictionary 2) word2; 
+    SET (nth dictionary 3) word3; 
+
+    VAR k int; 
+    SET k 0; 
+    WHILE (lt k (len dictionary)) 
+    [ 
+        CALL isPalindrome (nth dictionary k); 
+        SET k (add k 1) 
+    ] 
+]

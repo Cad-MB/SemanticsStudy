@@ -1,5 +1,6 @@
 [
-  PROC inc [var x:int] [ SET x (add x 1) ];
+  PROC inc [var x:int] 
+    [ SET x (add x 1) ];
   VAR a int;
   SET a 5;
   CALL inc (adr a);

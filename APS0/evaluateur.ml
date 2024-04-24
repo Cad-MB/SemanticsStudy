@@ -1,10 +1,6 @@
 open Ast
 
-(*E(Env) = ident(key string) -> V(value)*)
 module Env = Map.Make(String)
-  (*update environement Env.add*)
-
-(*-Utils-*)
 
 let primOpCheck op = 
   match op with
@@ -19,45 +15,42 @@ let primOpCheck op =
   | ASTId("false") -> true
   | _ -> false
 
-  let boolOp op = 
-    match op with
-    | "true" -> true
-    | "false" -> true
-    | _ -> false
+let boolOp op = 
+  match op with
+  | "true" -> true
+  | "false" -> true
+  | _ -> false
 
-
-(*-V = Z ⊕ F ⊕ FR-*)
+(* Définition des types de valeurs manipulées dans APS0 : entiers, fonctions, et fonctions récursives *)
 type value = 
-  InZ of int (*-Z = valeurs immediates*)
-  | InF of singleExpr * string list * value Env.t (*-F(InF) = Expr(string) × ident∗(string list) × E(value Env.k)-*)
-  | InFR of singleExpr * string * string list * value Env.t (*-FR(InFR) = Expr(string) × ident(string) × ident∗(string list) × E(value Env.k)-*)
-  
-let print_value value = 
+  InZ of int
+  | InF of singleExpr * string list * value Env.t 
+  | InFR of singleExpr * string * string list * value Env.t 
+
+(* Affichage des valeurs entières, seule instruction d'effet de bord en APS0 *)
+let print_value value = (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match value with
     InZ(n) -> Printf.printf "%d\n" n
   | _ -> failwith ("Type non entier")
-  (*| _ -> failwith (value^" Type non entier")*)
 
-(*-O(output_stream) = Z∗(int list)-*)
 type output_stream = int list
 
-let get_arg_ident (arg) =   (* <-- fait grace a l'aide d'un camarade dans la salle TME *)
+(* Extraction des identifiants des arguments pour la manipulation des fonctions *)
+let get_arg_ident (arg) =   (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match arg with 
   ASTSingleArg (ident,_) -> ident 
   
 
-let rec get_args_in_string_list (argz) : (string list) =   (* <-- fait grace a l'aide d'un camarade dans la salle TME *)
+let rec get_args_in_string_list (argz) : (string list) =   (* <-- fait avec l'aide d'un camarade dans la salle TME (Yanis & Salim Tabellout )*)
   match argz with 
   |  [] -> []
   |  a::argz2 -> 
       (get_arg_ident a)::(get_args_in_string_list argz2)
 
-(*Fonctions primitives*)
+(* Évaluation des opérations primitives sur les entiers selon APS0 *)
 let eval_prim op args = 
   match op, args with
-  (* Opérateurs unaires *)
   | ASTId("not"), [InZ n] -> InZ (if n = 0 then 1 else 0)
-  (* Opérateurs binaires *)
   | ASTId("eq"), [InZ n1; InZ n2] -> InZ (if n1 = n2 then 1 else 0)
   | ASTId("lt"), [InZ n1; InZ n2] -> InZ (if n1 < n2 then 1 else 0)
   | ASTId("add"), [InZ n1; InZ n2] -> InZ (n1 + n2)
@@ -66,12 +59,14 @@ let eval_prim op args =
   | ASTId("div"), [InZ n1; InZ n2] -> InZ (n1 / n2)
   | _ -> failwith ("Opérateur ou arguments non pris en charge")
 
-  let eval_bool op  = 
+(* Évaluation des opérateurs booléens 'true' et 'false' *)
+let eval_bool op  = 
   match op with
   | "true" -> InZ 1
   | "false" -> InZ 0
   | _ -> failwith (" Opérateur bool non pris en charge")
 
+(* Fonction d'évaluation des expressions APS0, incluant les opérations primitives et les appels de fonction *)
 let rec eval_expr x env = 
   match x with 
   | ASTNum n -> InZ n 
@@ -80,7 +75,6 @@ let rec eval_expr x env =
     | false -> (match Env.find_opt id env with 
                 | Some v -> v
                 | None -> failwith (id^" : Variable non définie dans l'environnement")))
-  (* Gestion des opérateurs logiques et de contrôle *)
   | ASTAnd (e1, e2) ->
     let v1 = eval_expr e1 env in
     let v2 = eval_expr e2 env in
@@ -92,10 +86,8 @@ let rec eval_expr x env =
   | ASTIf (e1, e2, e3) ->
       let v1 = eval_expr e1 env in
       if v1 = InZ 1 then eval_expr e2 env else eval_expr e3 env
-  (* Cas de l'abstraction de fonction *)
   | ASTLambdaExpression (args, body) -> 
     let xs = List.map (fun (ASTSingleArg (x,t))-> x) args in InF(body,xs,env)
-  (* Cas de l'application de fonction *)
   | ASTApp (func, args) -> 
     let args_values = List.map (fun arg -> eval_expr arg env) args in
     (match (primOpCheck func) with
@@ -105,39 +97,34 @@ let rec eval_expr x env =
             | InF (body, params, env2) ->
                 let new_env = List.fold_left2 (fun acc param arg_value -> Env.add param arg_value acc) env2 params args_values in
                 eval_expr body new_env
-            | InFR (body, func_name, params, env2) -> (* Change here *)
+            | InFR (body, func_name, params, env2) -> 
                 let new_env = List.fold_left2 (fun acc param arg_value -> Env.add param arg_value acc) env2 params args_values in
-                eval_expr body (Env.add func_name func_value new_env) (* Pass the function name and its closure *)
+                eval_expr body (Env.add func_name func_value new_env) 
             | _ -> failwith (" Impossible d'appeler une fonction qui n'est pas une fermeture")))
 
+(* Évaluation de l'instruction 'echo', produisant une sortie dans APS0 *)
 let rec eval_stat ins env flx = 
   match ins with
-  (* Évaluation de l'instruction ECHO *)
   | ASTEcho expr ->
       let result = eval_expr expr env in
-      (* Ajout du résultat à la sortie *)
       result :: flx
 
+(* Évaluation des définitions de constantes et fonctions, mise à jour de l'environnement *)
 let rec eval_def def env = 
   match def with
-  (* Évaluation de la définition CONST *)
   | ASTConst (x, _, expr) ->
       let result = eval_expr expr env in
-      (* Mise à jour de l'environnement avec la valeur calculée *)
       Env.add x result env
-  (* Évaluation de la définition FUN *)
   | ASTFun (x, _, args, expr) ->
     let args_string = get_args_in_string_list args in
     let closure = InF (expr, args_string, env) in
-      (* Mise à jour de l'environnement avec la fermeture calculée *)
       Env.add x closure env
-  (* Évaluation de la définition FUN REC *)
   | ASTFunRec (x, _, args, expr) ->
     let args_string = get_args_in_string_list args in
     let recursion = InFR (expr, x, args_string, env) in
-    (* Mise à jour de l'environnement avec la fermeture récursive calculée *)
     Env.add x recursion env
 
+(* Évaluation des commandes dans un programme APS0 *)
 let rec eval_cmds cmds env flx =
   match cmds with
       | ASTDef (def, more_cmds) ->
@@ -146,12 +133,13 @@ let rec eval_cmds cmds env flx =
       | ASTStat stat ->
           eval_stat stat env flx  
 
+(* Point d'entrée pour l'évaluation d'un programme APS0 *)
 let rec eval_prog p =
   let final_output = eval_cmds p Env.empty [] in
   List.iter (function x -> print_value x) (List.rev final_output) 
-
 ;;
 
+(* Lecture et évaluation du programme APS0 depuis un fichier d'entrée *)
 let fname = Sys.argv.(1) in
 let ic = open_in fname in
 try

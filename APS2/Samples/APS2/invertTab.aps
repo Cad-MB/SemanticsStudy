@@ -1,0 +1,24 @@
+[
+  VAR arr (vec int);
+  SET arr (alloc 5);
+  SET (nth arr 0) 1;
+  SET (nth arr 1) 2;
+  SET (nth arr 2) 3;
+  SET (nth arr 3) 4;
+  SET (nth arr 4) 5;
+  VAR i int;
+  SET i 0;
+  WHILE (lt i (div (len arr) 2))
+    [
+      VAR temp int;
+      SET temp (nth arr i);
+      SET (nth arr i) (nth arr (sub (len arr) (add i 1)));
+      SET (nth arr (sub (len arr) (add i 1))) temp;
+      SET i (add i 1)
+    ];
+  ECHO (nth arr 0);
+  ECHO (nth arr 1);
+  ECHO (nth arr 2);
+  ECHO (nth arr 3);
+  ECHO (nth arr 4)
+]

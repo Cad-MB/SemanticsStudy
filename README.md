@@ -1,21 +1,30 @@
-# APS
+## Installation
 
-## Tester un fichier avec prologTerm :
+Suivez les étapes ci-dessous pour installer le projet :
 
-make
+    git clone https://stl.algo-prog.info/21319982/APS-tme
+    cd APS-tme/
+    cd APSx/
+    make
 
-./prologTerm Samples/prog8.aps
+## Scripts et Exécution
 
-## Tester le typeur tout seul :
+Utilisez les commandes suivantes pour exécuter divers scripts et tâches :
 
-swipl typer.pl
+### Exécuter le script `test_samples.sh`
 
-## trace in swipl
+    bash test_samples.sh
 
-first, give the result of ./prologTerm to swipl as:
-g0(L),type_prog(L, ---sortie prolog--- , G).
-if false:
+### Afficher la requête Prolog avec `prologTerm`
 
-    - trace.
+    ./prologTerm Samples/Sample.aps
 
-    - g0(L),type_prog(L, ---sortie prolog--- , G). --> and press enter
+### Vérifier le type avec `typer` (swipl)
+
+    swipl typer.pl
+    ?- trace.
+    [trace] ?- g0(L),type_prog(L, ---sortie prolog--- , G).
+
+### Évaluer avec `evaluateur`
+
+    ./evaluateur Samples/Sample.aps
