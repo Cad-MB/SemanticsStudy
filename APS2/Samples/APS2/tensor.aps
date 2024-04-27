@@ -1,0 +1,67 @@
+[
+  VAR cube0 (vec (vec (vec int)));
+  SET cube0 (alloc 3);
+
+  VAR vec0 (vec (vec int));
+  SET vec0 (alloc 3);
+  SET (nth cube0 0) vec0;
+
+  VAR vec1 (vec (vec int));
+  SET vec1 (alloc 3);
+  SET (nth cube0 1) vec1;
+
+  VAR vec2 (vec (vec int));
+  SET vec2 (alloc 3);
+  SET (nth cube0 2) vec2;
+
+  SET (nth (nth cube0 0) 0) (alloc 3);
+  SET (nth (nth cube0 0) 1) (alloc 3);
+  SET (nth (nth cube0 0) 2) (alloc 3);
+
+  SET (nth (nth cube0 1) 0) (alloc 3);
+  SET (nth (nth cube0 1) 1) (alloc 3);
+  SET (nth (nth cube0 1) 2) (alloc 3);
+
+  SET (nth (nth cube0 2) 0) (alloc 3);
+  SET (nth (nth cube0 2) 1) (alloc 3);
+  SET (nth (nth cube0 2) 2) (alloc 3);
+
+  VAR i int;
+  SET i 0;
+
+  WHILE (lt i (len cube0)) [
+    SET j 0;
+
+    WHILE (lt j (len (nth cube0 i))) [
+      SET k 0;
+
+      WHILE (lt k (len (nth (nth cube0 i) j))) [
+        SET (nth (nth (nth cube0 i) j) k) (add (mul i 9) (add (mul j 3) k));
+        SET k (add k 1)
+      ];
+
+      SET j (add j 1)
+    ];
+
+    SET i (add i 1)
+  ];
+
+  SET i 0;
+
+  WHILE (lt i (len cube0)) [
+    SET j 0;
+
+    WHILE (lt j (len (nth cube0 i))) [
+      SET k 0;
+
+      WHILE (lt k (len (nth (nth cube0 i) j))) [
+        ECHO (nth (nth (nth cube0 i) j) k);
+        SET k (add k 1)
+      ];
+
+      SET j (add j 1)
+    ];
+
+    SET i (add i 1)
+  ]
+]

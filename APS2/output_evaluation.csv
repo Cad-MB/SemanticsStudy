@@ -1,74 +1,75 @@
 sample path, correct (yes/no), result,  expected
-Samples/CMDS/CMDS(defs).aps, yes, 1,  1
-Samples/CMDS/CMDS(end).aps, yes, 42,  42
-Samples/TYPE/TYPE.aps, yes, 5,  5
-Samples/TYPE/TYPES.aps, yes, 43,  43 
-Samples/ER(2023_3).aps, yes, 5,  5
+Samples/prog0.aps, yes, 42,  42
+Samples/ER(2023_2).aps, yes, 3,  3
 Samples/prog7.aps, yes, 5,  5
-Samples/DEF/DEF(proc).aps, yes, 5,  5
-Samples/DEF/DEF(VAR).aps, yes, 11,  11
-Samples/DEF/DEF(const).aps, yes, 3,  3
-Samples/DEF/DEF(ProcRec).aps, yes, 1,  1
-Samples/DEF/DEF(funRec).aps, yes, 6,  6
-Samples/DEF/DEF(fun).aps, yes, 50,  50
-Samples/EXPR/EXPR(if_1).aps, yes, 0,  0
-Samples/EXPR/EXPR(or_10).aps, yes, 1,  1
-Samples/EXPR/EXPR(app_mul).aps, yes, 25,  25
-Samples/EXPR/EXPR(app_f).aps, yes, 50,  50
-Samples/EXPR/EXPR(not_0).aps, yes, 1,  1
-Samples/EXPR/EXPR(if_0).aps, yes, 1,  1
-Samples/EXPR/EXPR(lt_0).aps, yes, 0,  0
-Samples/EXPR/EXPR(num).aps, yes, 42,  42
-Samples/EXPR/EXPR(and_01).aps, yes, 11,  11
-Samples/EXPR/EXPR(eq_1).aps, yes, 1,  1
-Samples/EXPR/EXPR(app_sub).aps, yes, 25,  25
-Samples/EXPR/EXPR(and_11).aps, yes, 10,  10
-Samples/EXPR/EXPR(app_add).aps, yes, 43,  43
-Samples/EXPR/EXPR(app_div).aps, yes, 2,  2
-Samples/EXPR/EXPR(or_01).aps, yes, 1,  1
-Samples/EXPR/EXPR(not_1).aps, yes, 0,  0
-Samples/EXPR/EXPR(or_11).aps, yes, 1,  1
-Samples/EXPR/EXPR(or_00).aps, yes, 0,  0
-Samples/EXPR/EXPR(id).aps, yes, 3,  3
-Samples/EXPR/EXPR(and_10).aps, yes, 11,  11
-Samples/EXPR/EXPR(lt_1).aps, yes, 1,  1
-Samples/EXPR/EXPR(and_00).aps, yes, 11,  11
-Samples/EXPR/EXPR(eq_0).aps, yes, 0,  0
-Samples/EXPR/EXPR(abs).aps, yes, 42,  42
-Samples/APS2/bigVect.aps, yes, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
-Samples/APS2/vect.aps, yes, 1,  1
-Samples/APS2/ER2_2023.aps, yes, 0 1 2, 0 1 2
-Samples/APS2/invertTab.aps, yes, 5 4 3 2 1, 5 4 3 2 1
-Samples/APS2/matrix.aps, yes, 0 1 2 3, 0 1 2 3
-Samples/APS2/copyVect.aps, yes, 7 8 9, 7 8 9
-Samples/APS2/isPalindrome.aps, yes, 9 9 9 1 0 0 9 9 9 1, 9 9 9 1 0 0 9 9 9 1
-Samples/APS2/maxVec.aps, yes, 1 1 5, 1 1 5
-Samples/prog9.aps, yes, 2,  2
-Samples/prog10.aps, yes, 56,  56
+Samples/prog5.aps, yes, 2,  2
 Samples/ER(2023_1).aps, yes, 5,  5
 Samples/ER(2024_1).aps, yes, 3,  3
-Samples/STAT/STAT(if).aps, yes, 5 1, 5 1
-Samples/STAT/STAT(call-aps1a).aps, yes, 1 2, 1 2
-Samples/STAT/STAT(while).aps, yes, 6 7 8 9 10, 6 7 8 9 10
-Samples/STAT/STAT(call).aps, yes, 15,  15
-Samples/STAT/STAT(set).aps, yes, 5,  5
-Samples/STAT/STAT(echo).aps, yes, 42,  42
-Samples/prog1.aps, yes, 20,  20
-Samples/prog6.aps, yes, 9,  9
-Samples/ER(2023_2).aps, yes, 3,  3
-Samples/prog8.aps, yes, 3,  3
-Samples/ER(2024_2).aps, yes, 6,  6
-Samples/prog4.aps, yes, 100,  100
+Samples/TYPE/TYPE.aps, yes, 5,  5
+Samples/TYPE/TYPES.aps, yes, 43,  43 
 Samples/prog3.aps, yes, 30,  30
-Samples/prog0.aps, yes, 42,  42
-Samples/APS0/isEven.aps, yes, 10,  10
-Samples/APS0/fact.aps, yes, 120,  120
-Samples/APS0/pgcd.aps, yes, 6,  6
-Samples/APS0/fib.aps, yes, 55,  55
-Samples/APS0/pow.aps, yes, 256,  256
-Samples/ARG/ARGS.aps, yes, 50,  50
+Samples/ER(2023_3).aps, yes, 5,  5
+Samples/ER(2024_2).aps, yes, 6,  6
+Samples/prog6.aps, yes, 9,  9
+Samples/CMDS/CMDS(defs).aps, yes, 1,  1
+Samples/CMDS/CMDS(end).aps, yes, 42,  42
+Samples/prog4.aps, yes, 100,  100
+Samples/prog9.aps, yes, 2,  2
+Samples/prog10.aps, yes, 56,  56
 Samples/APS1/set.aps, yes, 30,  30
 Samples/APS1/proc.aps, yes, 7,  7
 Samples/APS1/while.aps, yes, 15,  15
+Samples/EXPR/EXPR(and_11).aps, yes, 10,  10
+Samples/EXPR/EXPR(num).aps, yes, 42,  42
+Samples/EXPR/EXPR(or_10).aps, yes, 1,  1
+Samples/EXPR/EXPR(and_10).aps, yes, 11,  11
+Samples/EXPR/EXPR(id).aps, yes, 3,  3
+Samples/EXPR/EXPR(and_00).aps, yes, 11,  11
+Samples/EXPR/EXPR(eq_0).aps, yes, 0,  0
+Samples/EXPR/EXPR(or_11).aps, yes, 1,  1
+Samples/EXPR/EXPR(or_00).aps, yes, 0,  0
+Samples/EXPR/EXPR(eq_1).aps, yes, 1,  1
+Samples/EXPR/EXPR(if_1).aps, yes, 0,  0
+Samples/EXPR/EXPR(app_sub).aps, yes, 25,  25
+Samples/EXPR/EXPR(app_mul).aps, yes, 25,  25
+Samples/EXPR/EXPR(not_1).aps, yes, 0,  0
+Samples/EXPR/EXPR(or_01).aps, yes, 1,  1
+Samples/EXPR/EXPR(if_0).aps, yes, 1,  1
+Samples/EXPR/EXPR(and_01).aps, yes, 11,  11
+Samples/EXPR/EXPR(lt_1).aps, yes, 1,  1
+Samples/EXPR/EXPR(app_div).aps, yes, 2,  2
+Samples/EXPR/EXPR(abs).aps, yes, 42,  42
+Samples/EXPR/EXPR(app_f).aps, yes, 50,  50
+Samples/EXPR/EXPR(lt_0).aps, yes, 0,  0
+Samples/EXPR/EXPR(app_add).aps, yes, 43,  43
+Samples/EXPR/EXPR(not_0).aps, yes, 1,  1
+Samples/ARG/ARGS.aps, yes, 50,  50
+Samples/DEF/DEF(proc).aps, yes, 5,  5
+Samples/DEF/DEF(fun).aps, yes, 50,  50
+Samples/DEF/DEF(funRec).aps, yes, 6,  6
+Samples/DEF/DEF(VAR).aps, yes, 11,  11
+Samples/DEF/DEF(const).aps, yes, 3,  3
+Samples/DEF/DEF(ProcRec).aps, yes, 1,  1
+Samples/prog8.aps, yes, 3,  3
+Samples/STAT/STAT(call).aps, yes, 15,  15
+Samples/STAT/STAT(if).aps, yes, 5 1, 5 1
+Samples/STAT/STAT(call-aps1a).aps, yes, 1 2, 1 2
+Samples/STAT/STAT(echo).aps, yes, 42,  42
+Samples/STAT/STAT(set).aps, yes, 5,  5
+Samples/STAT/STAT(while).aps, yes, 6 7 8 9 10, 6 7 8 9 10
+Samples/prog1.aps, yes, 20,  20
+Samples/APS2/invertTab.aps, yes, 5 4 3 2 1, 5 4 3 2 1
+Samples/APS2/maxVec.aps, yes, 1 1 5, 1 1 5
+Samples/APS2/3d.aps, yes, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+Samples/APS2/isPalindrome.aps, yes, 9 9 9 1 0 0 9 9 9 1, 9 9 9 1 0 0 9 9 9 1
+Samples/APS2/ER2_2023.aps, yes, 0 1 2, 0 1 2
+Samples/APS2/vect.aps, yes, 1,  1
+Samples/APS2/matrix.aps, yes, 0 1 2 3, 0 1 2 3
+Samples/APS2/copyVect.aps, yes, 7 8 9, 7 8 9
+Samples/APS2/bigVect.aps, yes, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49, 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+Samples/APS0/pow.aps, yes, 256,  256
+Samples/APS0/isEven.aps, yes, 10,  10
+Samples/APS0/fib.aps, yes, 55,  55
+Samples/APS0/fact.aps, yes, 120,  120
+Samples/APS0/pgcd.aps, yes, 6,  6
 Samples/prog2.aps, yes, 22,  22
-Samples/prog5.aps, yes, 2,  2

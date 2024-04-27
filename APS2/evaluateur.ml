@@ -200,14 +200,13 @@ let rec eval_expr (rho : env) (sigma : memory) (expr : singleExpr) : value * mem
       let (vec, sigma1) = eval_expr rho sigma e1 in
       let (index, sigma2) = eval_expr rho sigma1 e2 in
       let (new_val, sigma3) = eval_expr rho sigma2 e3 in
-      Printf.printf "Setting vector at index %d to %d\n" (match index with InZ i -> i | _ -> -1) (match new_val with InZ n -> n | _ -> -1);
       match vec, index with
       | InB (base_addr, size), InZ idx when idx >= 0 && idx < size ->
           Hashtbl.replace sigma3 (base_addr + idx) new_val;
-          Printf.printf "Successfully set\n";
           (InZ 0, sigma3)
       | _ -> failwith "ASTVset: Invalid vector or index"
     end
+
   | ASTLen e ->
     let (vec_val, sigma_after_vec) = eval_expr rho sigma e in
     (match vec_val with
