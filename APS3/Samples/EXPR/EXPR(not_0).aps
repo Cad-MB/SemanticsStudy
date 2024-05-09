@@ -1,0 +1,3 @@
+[
+    ECHO (if (not false) 1 0)
+]

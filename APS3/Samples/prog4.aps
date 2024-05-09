@@ -1,0 +1,5 @@
+[   
+    CONST x int 10;
+    CONST y int 20;
+    ECHO (add (mul 10 x) (sub (div y 2) 10)) 
+]

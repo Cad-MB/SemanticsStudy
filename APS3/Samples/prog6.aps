@@ -1,0 +1,3 @@
+[
+    ECHO (if (and true false) 8 9 )
+]

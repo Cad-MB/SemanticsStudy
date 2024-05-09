@@ -1,0 +1,10 @@
+[
+    PROC REC test [a: int] [
+        if (eq a 1) [
+            ECHO 1
+        ] [
+            CALL test (sub a 1)
+        ]
+    ];
+    CALL test 5
+]

@@ -1,0 +1,8 @@
+[
+    FUN REC isEven bool [n : int]
+        (if (lt n 2)
+            (eq n 0)
+            (isEven (sub n 2))
+        );
+    ECHO 10
+]

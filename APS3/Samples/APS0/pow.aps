@@ -1,0 +1,8 @@
+[
+    FUN REC pow int [base : int, exponent : int]
+        (if (eq exponent 0)
+            1
+            (mul base (pow base (sub exponent 1)))
+        );
+    ECHO (pow 2 8)
+]

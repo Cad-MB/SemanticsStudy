@@ -15,6 +15,8 @@ Utilisez les commandes suivantes pour exécuter divers scripts et tâches :
 
     bash test_samples.sh
 
+les résultats seront sauvegardés dans 2 fichiers CSV, output_typage.csv et output_evaluation.csv 
+
 ### Afficher la requête Prolog avec `prologTerm`
 
     ./prologTerm Samples/Sample.aps

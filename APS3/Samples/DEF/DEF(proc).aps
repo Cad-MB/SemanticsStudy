@@ -1,0 +1,5 @@
+[
+    CONST x int 5;
+    PROC hichem [x:int, y:int] [ECHO (add x y)];
+    ECHO x
+]

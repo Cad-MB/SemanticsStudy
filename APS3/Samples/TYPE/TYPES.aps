@@ -1,0 +1,4 @@
+[ 
+  FUN f int [x: int, y: bool] (add (mul 42 x) (if y 1 0));
+  ECHO (f 1 true)
+]

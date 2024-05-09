@@ -1,0 +1,11 @@
+[
+    FUN REC pgcd int [a : int, b : int]
+        (if (eq a b)
+            a
+            (if (lt a b)
+            (pgcd a (sub b a))
+            (pgcd (sub a b) b)
+            )
+        );
+    ECHO (pgcd 48 18)
+]

@@ -1,0 +1,1 @@
+[CONST myVector (vec int) (alloc 2); FUN affichageBloc int [ x:(vec int), y:int] [SET (nth x y) y]; ECHO 88]

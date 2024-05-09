@@ -1,0 +1,4 @@
+[
+    CONST a int 3; 
+    ECHO a 
+]
